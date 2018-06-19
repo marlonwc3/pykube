@@ -104,7 +104,9 @@ class KubernetesHTTPAdapterSendMixin(object):
                         auth_config.get("expiry"),
                         config,
                     )
-            # @@@ support oidc
+            elif auth_provider.get("name") == "oidc":
+                auth_config = auth_provider.get("config")
+                handle_oidc(request, config, auth_provider)
         elif "client-certificate" in config.user:
             kwargs["cert"] = (
                 config.user["client-certificate"].filename(),
