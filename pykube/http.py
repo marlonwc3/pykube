@@ -23,7 +23,7 @@ from six.moves.urllib.parse import urlparse
 
 from .exceptions import HTTPError
 from .utils import jsonpath_installed, jsonpath_parse
-
+from .oidc import handle_oidc
 
 _ipv4_re = re.compile(r"^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?).){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$")
 
